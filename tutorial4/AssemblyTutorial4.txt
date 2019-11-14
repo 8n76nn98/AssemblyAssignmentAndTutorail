@@ -1,0 +1,190 @@
+1 Basic Bit Mainpulation
+i) clear 7:4 of R0 
+   LDR R0,=0x12345678
+   LDR R1,=0xFFFFFF0F
+   AND R0,R0,R1
+;or
+   LDR R2,=0X000000F0;
+   BIC R0,R0,R2;
+ii)clear the first and last bytes of R1
+   LDR R1, =0x12345678
+   LDR R2,=0x00FFFF00;
+   AND R1,R1,R2
+   ;or 
+   LDR R2,=0xFF0000FF;
+   BIC R1,R1,R2
+iii) invert the most signifiant bit of R2
+    LDR R2,=0x12345678
+    LDR R3,=0x7FFFFFFF
+    EOR R2,R2,R3
+iv)  
+doGet
+    BL get
+    CMP R0,#0x0D
+    LDR R4,=0x20;
+    CMP R3 #'a'
+    BLO elseLower
+    CMP R3,#'z'
+    BHI elseLower
+    SUB R3,R3,R4
+    B endif
+elseLower
+    CMP R3,#'A'
+    BLO else
+    CMP R3,#'Z'
+    BHI else
+    ADD R3,R3,R4
+    B else
+else
+    BL put
+    B doGet
+v)   LDR R4,=0x12345678
+     LDR R5 =0x0000001D
+     ORR R4,R4,R5
+Vi) swap the most and least signficant bytes of the word in R5
+     LDR R5,=0x12345678
+     AND R6,R5,0xFF000000
+     AND R7,R5,0x000000FF
+
+     MOV R6,R6,LSR,#24
+     MOV R6,R7,LSL,#24
+    
+    LDR R8,=0x00FFFF00
+    AND R5,R5,R8
+
+    ORR R5,R5,R6
+    ORR R5,R5,R7
+vii) replace bits in R6 with the value 0x44
+    LDR R6,=0x12345678
+    LDR R7,=0x0000FF00
+    BIC R6,R6,R7 ;0x12340078
+    LDR R8,=0x00004400
+    ORR R6,R6,R8;0X12344478
+2 Shift and Add Multiplaction by A constant
+a)10
+ a= a*(2^3 +2^1)
+    MOV R2,R1,LSL,#3
+    MOV 3,R1,LSL,#1
+    ADD R1,R2,R3
+    MOV R0,R1
+b)15 
+a = a(2^3+2^2+2^1+2^0)
+    MOV R2,R1,LSL,#3
+    MOV R3,R1,LSL,#2
+    MOV R4,R1,LSL,#1
+    ADD R1,R1,R2
+    ADD R1,R1,R3
+    ADD R1,R1,R4
+    MOV R0,R1
+c) 17
+a =a*(2^4+2^0)
+    MOV R2,R1,LSL,#4
+    ADD R1,R2,R1
+    MOV R0,R1
+d)25
+    a= a*(2^4+2^3+2^0)
+    MOV R2,R1,LSL,#4
+    MOV R3,R1,LSL,#3
+    ADD R1,R1,R2
+    ADD R1,R1,R3
+    MOV R0,R1
+e)100
+    a=a*(2^6+2^5+2^2)
+    MOV R2,R1,LSL,#6
+    MOV R3,R1,LSL,#5
+    MOV R4,R1,LSL,#2
+    ADD R1,R2,R3
+    ADD R1,R1,R4
+    MOV R0,R1
+3 Shift and Add Multipaction by a vairable
+    LDR R1,=0x12345678
+    LDR R2,=0x12345678
+    LDR R7,=0;for sum variable
+    LDR R3,=0x00000001;as a mask
+    LDR R5,=0;the number for moving
+while
+    CMP R2,#0
+    BNE enwhile
+    AND R6,R2,R3;slecting the last value
+    MUL R8,R1,R6;temp multi variable
+    MOV R8,R8,LSL,R5; multple its expoent
+    ADD R5,R5,#1;adding 1 for next loop
+    ADD R7,R7,R8;for current sum 
+    MOV R2,R2,LSR,#1
+    B while
+endwhile
+4 scrableGame
+    // time complexity of this algorithm is linear 
+void scrabbleLikeGame()
+{
+    char str[] = value;
+    int []value =values;
+    char *pointer = str;
+    int #pointer2 =values;
+    int []wordCount ; LDR Rx = 0x400000000
+    while(pointer!=NULL) 
+    {
+        int distance = *p-'A';
+        count = Memory.wordCount[RX+distance];first load and then assignment to count 
+        count ++;
+        Memory.word[distance] = count; STRB
+        p++
+    }
+    LDR R0,=0 ;sum 
+    int index = 0;
+    int value = 0;
+    while(index<26)
+    {//need load a value for Memory
+        if(Memory.count[index] >0)
+        {
+            address of values += index
+            LDR wordScore ,[address]
+            value =  Memory.count[index] *wordScore;
+            adddress of values -= index            //recover
+            sum+=value;
+        }
+        index ++;
+    }
+}
+testWord DCB    "BANANA",0
+values  DCB 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
+    ;r0 is for the sum rememeber!
+    LDRB R1,=testWord
+    LDRB R2,=values
+    LDRB R3 =0x40000000;wordCount 
+while
+    LDR R4,[R1] ;load value
+    CMP R4,#'\0' ;end of string
+    BEQ endwhile
+    SUB R5,R4,#'A' ; computing related position
+    LDR R6,[R3+R5] ; //the value of related position
+    MOV R7,R6; count = Memory.count[R3+distance]
+    ADD R7,R7,#1
+    STRB R7,[R7+R3]
+    ADD R1,R1,#1 ;adding the address of str
+    B while
+endwhile 
+    LDR R8,=0 ;for index
+    LDR R9,=0; for value
+while2
+    CMP R8,#26
+    BHS endwhile2
+    LDR R10,[R3+R8]
+    CMP R10,#0
+    BLS else
+    ADD R2,R2,R8 ;address of values += index
+    LDR R11,[R2] ; load value of spefic element
+    LDR R12,[R3+R8] ;time for spefic letter
+    MUL R9,R12,R11
+    ADD R0,R0,R9
+    SUB R2,R2,R8
+else
+    ADD R8,R8,#1
+    
+endwhile2
+
+testWord DCB    "BANANA",0
+values  DCB 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
+
+testWord DCB    "BANANA",0
+values  DCB 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
