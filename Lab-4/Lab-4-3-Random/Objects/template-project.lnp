@@ -1,0 +1,6 @@
+--cpu ARM7TDMI
+".\objects\4-3.o"
+--scatter ".\lpc2468Flash.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\template-project.map" -o .\Objects\template-project.axf

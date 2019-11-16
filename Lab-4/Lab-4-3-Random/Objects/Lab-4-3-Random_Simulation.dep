@@ -1,0 +1,2 @@
+Dependencies for Project 'Lab-4-3-Random', Target 'Simulation': (DO NOT MODIFY !)
+F (.\4-3.s)(0x5DCFE276)(--cpu ARM7TDMI -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Philips--pd "__UVISION_VERSION SETA 514"--list .\listings\4-3.lst --xref -o .\objects\4-3.o --depend .\objects\4-3.d)
