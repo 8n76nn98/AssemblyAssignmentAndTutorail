@@ -8,46 +8,62 @@
 
 	LDR	R0, =tststr1	; first string
 	LDR	R1, =tststr2	; second string
+	LDR R3,=0x40000000 ;for channing tstr2
+	;
+	; Write your program here
+	;
+while1
+	LDRB R4,[R1] ;load data for str2
+	CMP R4,#'\0'
+	BEQ endwhile1
+	STRB R4,[R3]
+	ADD R3,R3,#1
+	ADD R1,R1,#1
+	B while1
+endwhile1
+	LDR R7,=0x40000000;start point
+	MOV R8,R7
 
-    LDR R2,=1 ;tempoary boolean reasult = 1
-	LDR R5,=0;innerCount
-	LDR R6,=0;outerCount
-	LDR R10,=1;constant one
-	
 outerLoop
-	LDRB R3,[R0];
-	LDRB R4,[R1];
-	CMP R3,#0
-	BEQ checkIfFinished
+	LDRB R4,[R0];R6 is copy of r0
+	CMP R4,#0
+	BEQ endOuterLoop
 innerLoop
-	CMP R4,#0
-	BEQ notAnagram;until the end of loop 
-	CMP R4,R3
-	BEQ reOuterLoop
-	ADD R1,R1,#1
-	LDRB R4,[R1]
+	LDRB R5,[R7]
+	CMP R5,#0
+	BEQ endinnerLoop
+	CMP R4,R5
+	BNE notequal
+	LDR R5,=1
+	STRB R5,[R7]
+notequal
+	ADD R7,R7,#1
 	B innerLoop
-reOuterLoop
-	STRB R10,[R1];replace the same character with 1 for convience
-	LDR R1,=tststr2
-	ADD R1,R1,#1
+endinnerLoop
+	ADD R0,R0,#1
+	MOV R7,R8;from start
 	B outerLoop
-notAnagram
-	LDR R2,=0
-	B finalDealing
-checkIfFinished
+endOuterLoop
+	
+	LDR R7,=0x40000000;start point
+	LDR R5,=0
+forLoop
+	LDRB R4,[R7]
 	CMP R4,#0
-	BEQ finalDealing
-	CMP R4,#1
-	BNE notAnagram
-	ADD R1,R1,#1;next Addres for test B
-	LDRB R4,[R1]
-	B checkIfFinished
-finalDealing
-	MOV R0,R2
+	BEQ endfor
+	ADD R5,R5,R4
+	ADD R7,R7,#1
+	B forLoop
+endfor
+	
+	LDR R0,=0     
+	CMP R5,#5
+	BNE finalE
+	MOV R0,#1
+finalE
 STOP	B	STOP
 
 tststr1	DCB	"tapas",0
 tststr2	DCB	"pasta",0
 
-END
+	END
