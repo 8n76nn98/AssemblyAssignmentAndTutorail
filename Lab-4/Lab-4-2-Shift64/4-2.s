@@ -39,7 +39,6 @@ shiftRight
 minusOne
 	SUB R2,R2,#1
 	B shiftRight
-finish
 STOP	B	STOP
 
 	END
