@@ -80,3 +80,87 @@ endif2
 	MOV R2,R2,LSR,#1
 	B while 
 endwhile
+
+
+
+//my version
+void function
+{
+	int flagOnforZero = 1; ;use a register for button as tag for start for 0 
+	int x = 0b11101111000000000100001100000111
+	int count = 0;
+	int mask = 0xb0000000000000001; //mask for pick up the leas significant bit 
+	while(x!=0)
+	{
+		int last digit = x &mask; //picking up the last digit AND operation in assembly 
+		if(lastDigit ==0)
+		{
+			flagOnforZero =0;
+
+		}
+
+		if(flagOnforZero =0)
+		{
+			//do nothing 
+		}
+		else
+		{
+			count ++;
+			flagOnforZero =1
+		}
+		x =x LSR #1 ;x/2
+
+	}
+}
+；function for computing the the number of continge of number 
+	LDR R1,=1 ;use a register ofr btton as tage for start for 0
+	LDR R2,=0x12345678 ; test data
+	LDR R3,=1			;mask for picking up the less signficant bit
+	LDR R6 =0;for counter 
+while
+	CMP R2,#0
+	BEQ endwhile
+	AND R4,R2,R3 ; int lastDigit =R2&last digit 
+	CMP R4,#0
+	BNE endif1
+	LDR R1,=0
+endif1
+	CMP R1,#0
+	BNE elseif2
+	B endif2
+elseif2
+	ADD R6,R6,#1
+	LDR R1,=0
+endif2
+	MOV R2,R2,LSR,#1
+	B while 
+endwhile
+
+
+	LDR R2,=1
+	LDR R1,=0x0F0F0F0F;
+	LDR R0,=0 ;count =0
+	LDR R2,=1;lastBit
+	LDR R3,=0;i = 0	
+
+for
+	CMP R3,#32
+	BHS endfor					;for(i = 0 ;i<32;i++){
+	AND R4,R1,#1
+	CMP R4,#0
+	BNE endIf
+	CMP R2,#1
+	BNE endIf
+	ADD R0,R0,#1
+endIf
+	MOV R2,R4	;lastBit = value&1;
+	MOV R1,R1,LSR #1
+	B for
+endfor
+						;	if(value &=1==0 &&lastBit == 1)
+						;	{
+						;		count++;
+						;	}
+						;	lastBit = value&1;
+						;	value = value>>1;
+						;}
