@@ -438,11 +438,11 @@
       <FileNumber>1</FileNumber>
       <FileType>2</FileType>
       <tvExp>0</tvExp>
-      <Focus>0</Focus>
+      <Focus>1</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\4-4.s</PathWithFileName>
-      <FilenameWithoutPath>4-4.s</FilenameWithoutPath>
+      <PathWithFileName>.\Lab-4-4-Anagram.s</PathWithFileName>
+      <FilenameWithoutPath>Lab-4-4-Anagram.s</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

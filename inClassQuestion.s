@@ -164,3 +164,7 @@ endfor
 						;	lastBit = value&1;
 						;	value = value>>1;
 						;}
+
+
+Bouns challenge 
+  set MSB Parity 

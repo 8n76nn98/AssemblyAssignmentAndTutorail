@@ -45,7 +45,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>template-project</OutputName>
+          <OutputName>Lab-4-4-Anagram</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -407,9 +407,9 @@
           <GroupName>Code</GroupName>
           <Files>
             <File>
-              <FileName>4-4.s</FileName>
+              <FileName>Lab-4-4-Anagram.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\4-4.s</FilePath>
+              <FilePath>.\Lab-4-4-Anagram.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -454,7 +454,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>template-project</OutputName>
+          <OutputName>Lab-4-4-Anagram</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -816,9 +816,9 @@
           <GroupName>Code</GroupName>
           <Files>
             <File>
-              <FileName>4-4.s</FileName>
+              <FileName>Lab-4-4-Anagram.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\4-4.s</FilePath>
+              <FilePath>.\Lab-4-4-Anagram.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -863,7 +863,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>template-project</OutputName>
+          <OutputName>Lab-4-4-Anagram</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -1225,9 +1225,9 @@
           <GroupName>Code</GroupName>
           <Files>
             <File>
-              <FileName>4-4.s</FileName>
+              <FileName>Lab-4-4-Anagram.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\4-4.s</FilePath>
+              <FilePath>.\Lab-4-4-Anagram.s</FilePath>
             </File>
           </Files>
         </Group>

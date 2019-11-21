@@ -1,7 +1,8 @@
 ;
 ; CSU11021 Introduction to Computing I 2019/2020
 ; Pseudo-random number generator
-;
+;https://aaronschlegel.me/linear-congruential-generator-r.html
+; i have changed the original method mod to use multiple it more convinece
 ;; linear contriguner generator
 	AREA	RESET, CODE, READONLY
 	ENTRY

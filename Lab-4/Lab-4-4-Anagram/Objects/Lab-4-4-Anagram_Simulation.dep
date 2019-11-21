@@ -1,2 +1,2 @@
 Dependencies for Project 'Lab-4-4-Anagram', Target 'Simulation': (DO NOT MODIFY !)
-F (.\4-4.s)(0x5DCFC4CC)(--cpu ARM7TDMI -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Philips--pd "__UVISION_VERSION SETA 514"--list .\listings\4-4.lst --xref -o .\objects\4-4.o --depend .\objects\4-4.d)
+F (.\Lab-4-4-Anagram.s)(0x5DD65CB0)(--cpu ARM7TDMI -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Philips--pd "__UVISION_VERSION SETA 514"--list .\listings\lab-4-4-anagram.lst --xref -o .\objects\lab-4-4-anagram.o --depend .\objects\lab-4-4-anagram.d)
