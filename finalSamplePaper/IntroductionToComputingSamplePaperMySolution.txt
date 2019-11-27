@@ -64,6 +64,29 @@ endfor
          }
      }
  }
+ ;------------------ teacher version
+    ;R0 RESULT
+    ;R1 addrss
+    ;R2 length of sequence 
+
+    MOV R0,#0
+    ;
+while
+    CMP R2,#0
+    BLT endwh
+    LDR R3,[R1]
+    MOVS R3,R3,LSR #1
+
+   ; BCC skip
+    ;ADD RO,R0,#1
+;skip
+    ADC R0,R0,#0; result = result +0 +carry;
+   ;ADDCS R0,R0,#1 
+    SUB R2,R2,#1
+    B while
+endwh
+
+ ;---------
     LDR R2,=0;count
     LDR R0,=0 ;maxCount
     LDR R3,=1;mask
